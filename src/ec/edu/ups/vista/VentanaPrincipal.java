@@ -28,6 +28,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         desktopPane = new javax.swing.JDesktopPane();
+        btnListarD = new javax.swing.JButton();
+        btnMostar = new javax.swing.JButton();
+        btnDOcultos = new javax.swing.JButton();
+        txtRuta = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        btnInfo = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -37,24 +45,79 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        desktopPane.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnListarD.setText("Listar Directorios");
+        desktopPane.add(btnListarD);
+        btnListarD.setBounds(80, 90, 113, 23);
+
+        btnMostar.setText("Mostrar Archivos Ocultos");
+        btnMostar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostarActionPerformed(evt);
+            }
+        });
+        desktopPane.add(btnMostar);
+        btnMostar.setBounds(210, 90, 153, 23);
+
+        btnDOcultos.setText("Listar Directorios Ocultos");
+        btnDOcultos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDOcultosActionPerformed(evt);
+            }
+        });
+        desktopPane.add(btnDOcultos);
+        btnDOcultos.setBounds(370, 90, 170, 23);
+        desktopPane.add(txtRuta);
+        txtRuta.setBounds(230, 40, 200, 20);
+
+        jLabel1.setText("Ruta:");
+        desktopPane.add(jLabel1);
+        jLabel1.setBounds(190, 40, 34, 14);
+        desktopPane.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 120, 310, 160);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 248, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 158, Short.MAX_VALUE)
+        );
+
+        desktopPane.add(jPanel1);
+        jPanel1.setBounds(330, 120, 250, 160);
+
+        btnInfo.setText("Mostrar Información");
+        desktopPane.add(btnInfo);
+        btnInfo.setBounds(120, 290, 130, 23);
+
         fileMenu.setMnemonic('f');
         fileMenu.setText("Gestionar");
 
+        openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Open");
+        openMenuItem.setText("Crear");
         fileMenu.add(openMenuItem);
 
+        saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
+        saveMenuItem.setText("Eliminar");
         fileMenu.add(saveMenuItem);
 
+        saveAsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
+        saveAsMenuItem.setText("Renombrar");
         fileMenu.add(saveAsMenuItem);
 
+        exitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, java.awt.event.InputEvent.CTRL_MASK));
         exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
+        exitMenuItem.setText("Salir");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitMenuItemActionPerformed(evt);
@@ -74,7 +137,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -83,6 +148,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
+
+    private void btnDOcultosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDOcultosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDOcultosActionPerformed
+
+    private void btnMostarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMostarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,13 +193,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDOcultos;
+    private javax.swing.JButton btnInfo;
+    private javax.swing.JButton btnListarD;
+    private javax.swing.JButton btnMostar;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JTextField txtRuta;
     // End of variables declaration//GEN-END:variables
 
 }
