@@ -105,6 +105,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         desktopPane.add(txtRuta);
         txtRuta.setBounds(230, 40, 230, 30);
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ruta:");
         desktopPane.add(jLabel1);
         jLabel1.setBounds(190, 40, 34, 14);
@@ -317,9 +318,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     }
 
                 } else {
-                    controladorDirectorio.crearDirectorio(ruta, nuevo);
-                    List<String> directorio = controladorDirectorio.listarArchivos(ruta);
-                    llenarLista(directorio);
+                    controladorDirectorio.crearDirectorio(ruta, nuevo);   
+                    JOptionPane.showMessageDialog(this, "Directorio creado correctamente");
+                    
                 }
             }
         }

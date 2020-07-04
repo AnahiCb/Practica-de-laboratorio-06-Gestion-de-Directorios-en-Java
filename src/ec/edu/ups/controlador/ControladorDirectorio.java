@@ -47,7 +47,7 @@ public class ControladorDirectorio {
         archivo = new File(ruta);
         archivos = archivo.listFiles();
 
-        for (File elemento : archivos) {
+            for (File elemento: archivos) {
             if (!elemento.isHidden()) {
                 lista.add(elemento.getName());
             }
@@ -167,7 +167,6 @@ public class ControladorDirectorio {
 
     public void renombrarDirectorio(String ruta, String actual, String renombre) {
         archivo = new File(ruta + File.separator + actual);
-
         File nuevo = new File(ruta + File.separator + renombre);
         archivo.renameTo(nuevo);
     }
