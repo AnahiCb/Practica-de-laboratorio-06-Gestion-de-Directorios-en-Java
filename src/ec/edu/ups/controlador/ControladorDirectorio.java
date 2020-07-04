@@ -22,7 +22,7 @@ public class ControladorDirectorio {
 
     }
 
-    public boolean comprobarRuta(String ruta) {
+    public boolean validarRuta(String ruta) {
         archivo = new File(ruta);
         if (archivo.exists()) {
             return true;
@@ -100,7 +100,7 @@ public class ControladorDirectorio {
         return lista;
     }
 
-    public String mostrarInformacion(String nombre, String ruta) {
+    public String mostrarInfo(String nombre, String ruta) {
 
         archivo = new File(ruta);
         archivos = archivo.listFiles();
@@ -176,57 +176,28 @@ public class ControladorDirectorio {
         archivo = new File(ruta + File.separator + eliminar);
         if (archivo.isDirectory()) {
             archivos = archivo.listFiles();
-            /* if (archivos.length != 0) {
-                for (File elemento : archivos) {
-                    if (elemento.isDirectory()) {
-                        File[] subarchivos = elemento.listFiles();
-                        for (File ele : subarchivos) {
-                            ele.delete();
-                        }
-                    } else {
-                        elemento.delete();
-                    }
-                }
-            } else {
-                archivo.delete();
-            }*/
 
             for (int i = 0; i < archivos.length; i++) {
                 if (archivos[i].isDirectory()) {
-                    eliminarDirectorio2(archivos[i]);
+                    eliminarDirectorios(archivos[i]);
                 } else {
                     archivos[i].delete();
                 }
             }
             archivo.delete();
         } else {
-            /*FileInputStream readArchivo = null;
-            try {
-                readArchivo = new FileInputStream(archivo);
-                try {
-                    readArchivo.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(ControladorDirectorio.class.getName()).log(Level.SEVERE, null, ex);
-                }*/
+            
             archivo.delete();
-            /*  } catch (FileNotFoundException ex) {
-                Logger.getLogger(ControladorDirectorio.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                try {
-                    readArchivo.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(ControladorDirectorio.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }*/
+            
         }
 
     }
 
-    public void eliminarDirectorio2(File path) {
+    public void eliminarDirectorios(File path) {
         File[] files = path.listFiles();
         for (int i = 0; i < files.length; i++) {
             if (files[i].isDirectory()) {
-                eliminarDirectorio2(files[i]);
+                eliminarDirectorios(files[i]);
             } else {
                 files[i].delete();
             }
@@ -235,7 +206,7 @@ public class ControladorDirectorio {
 
     }
 
-    public List<String> buscarPorNombre(String ruta, String nombre) {
+    public List<String> buscarNombre(String ruta, String nombre) {
         archivo = new File(ruta + File.separator + nombre);
         archivos = archivo.listFiles();
         List<String> lista = new ArrayList<>();
