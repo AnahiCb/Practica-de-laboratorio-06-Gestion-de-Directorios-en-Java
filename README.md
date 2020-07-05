@@ -85,7 +85,7 @@ Netbeans IDE 8.2
    
    ![Commits](https://github.com/AnahiCb/Imagenes-Practica06/blob/master/Commits.png)
    
-**## Resultados Obtenidos
+## Resultados Obtenidos
 
 * Aprender a manejar excepciones dentro de nuestros programas.
 *	Gestionar directorios desde una interfaz gráfica utilizando los métodos de la clase File.
